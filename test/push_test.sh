@@ -19,4 +19,9 @@ function test_gem_path_push()
 		                                      "$expected_dir/bin:$original_path"
 }
 
+function tearDown()
+{
+	gem_path --pop
+}
+
 SHUNIT_PARENT=$0 . $SHUNIT2
