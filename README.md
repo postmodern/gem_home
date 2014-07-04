@@ -1,6 +1,6 @@
 # gem_path
 
-**WARNING: THIS IS AN EXPERIMENT**
+**WARNING: THIS IS CURRENTLY AN EXPERIMENT**
 
 A tool for manipulating `$GEM_PATH`.
 
