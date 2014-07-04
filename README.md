@@ -6,10 +6,14 @@ A tool for manipulating `$GEM_PATH`.
 
 ## Features
 
-* Supports pushing / popping directories from `$GEM_PATH`.
+* Supports pushing and popping directories from `$GEM_PATH`.
 * Updates `$PATH` accordingly.
 
 ## Synopsis
+
+List gem directories:
+
+    $ gem_path
 
 Pushes a directory onto the front of `$GEM_PATH` and set `$GEM_HOME`:
 
