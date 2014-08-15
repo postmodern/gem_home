@@ -12,7 +12,7 @@ function gem_home_push()
 
 function gem_home_pop()
 {
-	local gem_dir="${GEM_PATH%:*}"
+	local gem_dir="${GEM_PATH%%:*}"
 
 	PATH=":$PATH:"
 	GEM_PATH=":$GEM_PATH:"
@@ -23,7 +23,7 @@ function gem_home_pop()
 	PATH="${PATH#:}"; PATH="${PATH%:}"
 	GEM_PATH="${GEM_PATH#:}"; GEM_PATH="${GEM_PATH%:}"
 
-	GEM_HOME="${GEM_PATH%:*}"
+	GEM_HOME="${GEM_PATH%%:*}"
 }
 
 function gem_home()
