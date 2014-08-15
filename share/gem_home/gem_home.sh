@@ -1,7 +1,19 @@
 function gem_home_push()
 {
 	mkdir -p "$1" && pushd "$1" >/dev/null || return 1
-	local gem_dir="$PWD"
+	local ruby_engine ruby_version ruby_api_version gem_dir
+
+	eval "$(ruby - <<EOF
+puts "ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
+puts "ruby_version=#{RUBY_VERSION};"
+puts "ruby_api_version=#{RbConfig::CONFIG['ruby_version']};"
+EOF
+)"
+	if [[ -d "$PWD/$ruby_engine/$ruby_api_version" ]]; then
+		gem_dir="$PWD/$ruby_engine/$ruby_api_version"
+	else
+		gem_dir="$PWD/$ruby_engine/$ruby_version"
+	fi
 
 	[[ "$GEM_HOME" == "$gem_dir" ]] && return
 
@@ -73,20 +85,6 @@ USAGE
 			done
 			;;
 		-)	gem_home_pop ;;
-		*)
-			eval "$(ruby - <<EOF
-puts "ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
-puts "ruby_version=#{RUBY_VERSION};"
-puts "ruby_api_version=#{RbConfig::CONFIG['ruby_version']};"
-EOF
-)"
-			echo "$1"
-			case "$1" in
-				*vendor/*)	gem_dir="$1/$ruby_engine/$ruby_api_version" ;;
-				*)		gem_dir="$1/$ruby_engine/$ruby_version" ;;
-			esac
-
-			gem_home_push "$gem_dir"
-			;;
+		*)	gem_home_push "$1" ;;
 	esac
 }
