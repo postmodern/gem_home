@@ -1,10 +1,13 @@
 function gem_home_push()
 {
-	local gem_dir="$1"
+	mkdir -p "$1" && cd "$1"
+	local gem_dir="$(pwd)"
 
 	GEM_HOME="$gem_dir"
 	GEM_PATH="$gem_dir${GEM_PATH:+:}$GEM_PATH"
 	PATH="$PATH${PATH:+:}$gem_dir/bin"
+
+	cd -
 }
 
 function gem_home_pop()
