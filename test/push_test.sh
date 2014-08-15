@@ -1,12 +1,17 @@
 . ./test/helper.sh
 . ./share/gem_home/gem_home.sh
 
+function setUp()
+{
+	original_path="$PATH"
+	original_gem_home="$GEM_HOME"
+	original_gem_path="$GEM_PATH"
+}
+
 function test_gem_home_push()
 {
 	local dir="$HOME/project1"
 	local expected_gem_dir="$dir/.gem/$test_ruby_engine/$test_ruby_version"
-	local original_path="$PATH"
-	local original_gem_path="$GEM_PATH"
 
 	gem_home_push "$dir"
 
@@ -22,9 +27,6 @@ function test_gem_home_push()
 
 function test_gem_home_push_twice()
 {
-	local original_path="$PATH"
-	local original_gem_path="$GEM_PATH"
-
 	local dir1="$HOME/project1"
 	local expected_gem_dir1="$dir1/.gem/$test_ruby_engine/$test_ruby_version"
 	gem_home_push "$dir1"
