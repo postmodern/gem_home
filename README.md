@@ -63,4 +63,6 @@ After removing the `gem_home` configuration:
 
     $ sudo make uninstall
 
+[PGP]: http://en.wikipedia.org/wiki/Pretty_Good_Privacy
+
 [1]: http://postmodern.github.com/contact.html#pgp
