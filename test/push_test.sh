@@ -10,14 +10,14 @@ function test_gem_path_push()
 
 	gem_home_push "$dir"
 
-	assertEquals "did not set \$GEM_HOME correctly" "$GEM_HOME" \
-		                                        "$expected_dir"
+	assertEquals "did not set \$GEM_HOME correctly" "$expected_dir" \
+		                                        "$GEM_HOME"
 
-	assertEquals "did not prepend to \$GEM_PATH" "$GEM_PATH" \
-		                                     "$expected_dir:$original_gem_path"
+	assertEquals "did not prepend to \$GEM_PATH" "$expected_dir:$original_gem_path" \
+		                                     "$GEM_PATH"
 
-	assertEquals "did not prepend bin/ to \$PATH" "$PATH" \
-		                                      "$expected_dir/bin:$original_path"
+	assertEquals "did not prepend bin/ to \$PATH" "$expected_dir/bin:$original_path" \
+	                                              "$PATH"
 }
 
 function tearDown()
