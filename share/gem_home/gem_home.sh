@@ -53,9 +53,17 @@ USAGE
 			;;
 		"")
 			local gem_path="$GEM_PATH:"
+			local gem_dir
 
 			until [[ -z "$gem_path" ]]; do
-				echo "  ${gem_path%%:*}"
+				gem_dir="${gem_path%%:*}"
+
+				if [[ "$gem_dir" == "$GEM_HOME" ]]; then
+					echo " * $gem_dir"
+				else
+					echo "   $gem_dir"
+				fi
+
 				gem_path="${gem_path#*:}"
 			done
 			;;
