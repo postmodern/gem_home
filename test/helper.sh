@@ -5,8 +5,8 @@ export PREFIX="$PWD/test"
 export HOME="$PREFIX/home"
 export PATH="$PWD/bin:$PATH"
 
-GEM_HOME="$HOME/.gem/ruby/2.1.2"
-GEM_PATH="$HOME/.gem/ruby/2.1.2:/opt/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0"
+export GEM_HOME="$HOME/.gem/ruby/2.1.2"
+export GEM_PATH="$HOME/.gem/ruby/2.1.2:/opt/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0"
 
 eval "$(ruby - <<EOF
 puts "test_ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
