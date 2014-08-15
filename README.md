@@ -18,7 +18,7 @@ Revert the `$GEM_HOME`:
 
     $ gem_home -
 
-Using bundler:
+Using with bundler:
 
     $ cd padrino-app/
     $ gem_home .
