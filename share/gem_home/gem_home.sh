@@ -78,8 +78,9 @@ puts "ruby_version=#{RUBY_VERSION};"
 puts "ruby_api_version=#{RbConfig::CONFIG['ruby_version']};"
 EOF
 )"
+			echo "$1"
 			case "$1" in
-				*vendor/gems)	gem_dir="$1/$ruby_engine/$ruby_api_version" ;;
+				*vendor/*)	gem_dir="$1/$ruby_engine/$ruby_api_version" ;;
 				*)		gem_dir="$1/$ruby_engine/$ruby_version" ;;
 			esac
 
