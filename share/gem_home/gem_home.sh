@@ -1,6 +1,6 @@
 function gem_home_push()
 {
-	mkdir -p "$1" && pushd "$1" >/dev/null
+	mkdir -p "$1" && pushd "$1" >/dev/null || return 1
 	local gem_dir="$(pwd)"
 
 	GEM_HOME="$gem_dir"
