@@ -5,9 +5,9 @@ function gem_home_push()
 
 	[[ "$GEM_HOME" == "$gem_dir" ]] && return
 
-	GEM_HOME="$gem_dir"
-	GEM_PATH="$gem_dir${GEM_PATH:+:}$GEM_PATH"
-	PATH="$PATH${PATH:+:}$gem_dir/bin"
+	export GEM_HOME="$gem_dir"
+	export GEM_PATH="$gem_dir${GEM_PATH:+:}$GEM_PATH"
+	export PATH="$PATH${PATH:+:}$gem_dir/bin"
 
 	popd >/dev/null
 }
