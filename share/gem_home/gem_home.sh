@@ -55,6 +55,8 @@ Examples:
 USAGE
 			;;
 		"")
+			[[ -z "$GEM_PATH" ]] && return
+
 			local gem_path="$GEM_PATH:"
 			local gem_dir
 
