@@ -7,7 +7,6 @@ A tool for manipulating `$GEM_HOME` and `$GEM_PATH`.
 * Supports pushing and popping directories from `$GEM_PATH`.
 * Adds gem `bin/` directories to `$PATH` as well.
 * Supports setting `$GEM_HOME` and reverting it to the last dir in `$GEM_PATH`.
-* Supports using `vendor/gems/` directories.
 
 ## Synopsis
 
@@ -18,10 +17,6 @@ Change the `$GEM_HOME`:
 Revert the `$GEM_HOME`:
 
     $ gem_home -
-
-Use the `vendor/gems/` directory:
-
-    $ gem_home --vendor
 
 ## Install
 
