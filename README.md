@@ -1,5 +1,7 @@
 # gem_home
 
+[![Build Status](https://travis-ci.org/postmodern/gem_home.png)](https://travis-ci.org/postmodern/gem_home)
+
 A tool for changing your `$GEM_HOME`.
 
 ## Features
