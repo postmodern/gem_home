@@ -1,8 +1,12 @@
-# gem_home(1) -- Changes your $GEM_HOME
+# gem_home 1 "Aug 2014" gem_home "User Manuals"
 
 ## SYNOPSIS
 
-`gem_home` [OPTIONS] [DIR|-]
+`gem_home` [OPTIONS] [DIR\|-]
+
+## DESCRIPTION
+
+Changes the `$GEM_HOME` by pushing directories on or off of `$GEM_PATH`.
 
 ## ARGUMENTS
 
@@ -20,10 +24,6 @@
 `-v`, `--version`
     Prints the version.
 
-## DESCRIPTION
-
-Changes the `$GEM_HOME` by pushing directories on or off of `$GEM_PATH`.
-
 ## EXAMPLES
 
 Change the `$GEM_HOME`:
@@ -34,7 +34,7 @@ Revert the `$GEM_HOME`:
 
     $ gem_home -
 
-Using bundler:
+Using with bundler:
 
     $ cd padrino-app/
     $ gem_home .
