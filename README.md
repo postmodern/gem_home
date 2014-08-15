@@ -1,6 +1,6 @@
 # gem_home
 
-A tool for manipulating `$GEM_HOME` and `$GEM_PATH`.
+A tool for changing your `$GEM_HOME`.
 
 ## Features
 
