@@ -16,6 +16,18 @@ puts "test_ruby_patchlevel=#{RUBY_PATCHLEVEL};"
 EOF
 )"
 
-setUp() { return; }
-tearDown() { return; }
-oneTimeTearDown() { return; }
+function setUp()
+{
+	original_path="$PATH"
+	original_gem_home="$GEM_HOME"
+	original_gem_path="$GEM_PATH"
+
+	cd "$HOME"
+}
+function tearDown()
+{
+	GEM_HOME="$original_gem_home"
+	GEM_PATH="$original_gem_path"
+	PATH="$original_path"
+}
+function oneTimeTearDown() { return; }
