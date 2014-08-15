@@ -6,11 +6,13 @@ function setUp()
 	original_path="$PATH"
 	original_gem_home="$GEM_HOME"
 	original_gem_path="$GEM_PATH"
+
+	cd "$HOME"
 }
 
 function test_gem_home_push()
 {
-	local dir="$PWD/project1"
+	local dir="$HOME/project1"
 	local expected_gem_dir="$dir/.gem/$test_ruby_engine/$test_ruby_version"
 
 	gem_home_push "$dir"
@@ -28,7 +30,7 @@ function test_gem_home_push()
 function test_gem_home_push_relative_path()
 {
 	local dir="foo/../project1"
-	local expected_dir="$PWD/project1"
+	local expected_dir="$HOME/project1"
 	local expected_gem_dir="$expected_dir/.gem/$test_ruby_engine/$test_ruby_version"
 
 	gem_home_push "$dir"
@@ -40,11 +42,11 @@ function test_gem_home_push_relative_path()
 
 function test_gem_home_push_twice()
 {
-	local dir1="$PWD/project1"
+	local dir1="$HOME/project1"
 	local expected_gem_dir1="$dir1/.gem/$test_ruby_engine/$test_ruby_version"
 	gem_home_push "$dir1"
 
-	local dir2="$PWD/project2"
+	local dir2="$HOME/project2"
 	local expected_gem_dir2="$dir2/.gem/$test_ruby_engine/$test_ruby_version"
 	gem_home_push "$dir2"
 

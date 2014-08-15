@@ -6,6 +6,8 @@ function setUp()
 	original_path="$PATH"
 	original_gem_home="$GEM_HOME"
 	original_gem_path="$GEM_PATH"
+
+	cd "$HOME"
 }
 
 function test_gem_home_pop()
