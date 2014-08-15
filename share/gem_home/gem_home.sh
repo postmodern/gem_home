@@ -28,7 +28,7 @@ function gem_home_pop()
 
 function gem_home()
 {
-	local ruby_engine ruby_version
+	local ruby_engine ruby_version ruby_api_version gem_dir
 	local version="0.0.1"
 
 	case "$1" in
@@ -38,7 +38,6 @@ function gem_home()
 usage: gem_home [OPTIONS] [DIR|-]
 
 Options:
-	--vendor	Sets ./vendor/gems as the \$GEM_HOME
 	-V, --version	Prints the version
 	-h, --help	Prints this message
 
@@ -58,7 +57,6 @@ USAGE
 			[[ -z "$GEM_PATH" ]] && return
 
 			local gem_path="$GEM_PATH:"
-			local gem_dir
 
 			until [[ -z "$gem_path" ]]; do
 				gem_dir="${gem_path%%:*}"
@@ -73,21 +71,19 @@ USAGE
 			done
 			;;
 		-)	gem_home_pop ;;
-		--vendor)
-			eval "$(ruby - <<EOF
-puts "ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
-puts "ruby_version=#{RbConfig::CONFIG['ruby_version']};"
-EOF
-)"
-			gem_home_push "$PWD/vendor/gems/$ruby_engine/$ruby_version"
-			;;
 		*)
 			eval "$(ruby - <<EOF
 puts "ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
 puts "ruby_version=#{RUBY_VERSION};"
+puts "ruby_api_version=#{RbConfig::CONFIG['ruby_version']};"
 EOF
 )"
-			gem_home_push "$1/.gem/$ruby_engine/$ruby_version"
+			case "$1" in
+				*vendor/gems)	gem_dir="$1/$ruby_engine/$ruby_api_version" ;;
+				*)		gem_dir="$1/$ruby_engine/$ruby_version" ;;
+			esac
+
+			gem_home_push "$gem_dir"
 			;;
 	esac
 }
