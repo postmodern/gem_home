@@ -19,6 +19,13 @@ DOC_DIR=$(PREFIX)/share/doc/$(PKG_NAME)
 pkg:
 	mkdir $(PKG_DIR)
 
+share/man/man1/gem_home.1: doc/man/gem_home.1.md
+	kramdown-man doc/man/gem_home.1.md > share/man/man1/gem_home.1
+
+man: doc/man/gem_home.1.md share/man/man1/gem_home.1
+	git add doc/man/gem_home.1.md share/man/man1/gem_home.1
+	git commit
+
 download: pkg
 	wget -O $(PKG) $(URL)/archive/v$(VERSION).tar.gz
 
