@@ -14,7 +14,7 @@ EOF
 
 	if [[ -n "$GEM_HOME" ]]; then
 		PATH=":$PATH:"
-		export PATH="${PATH//:$GEM_HOME\/bin:/:$gem_dir/bin:$GEM_HOME/bin:}"
+		export PATH="${PATH/:$GEM_HOME\/bin:/:$gem_dir/bin:$GEM_HOME/bin:}"
 		PATH="${PATH#:}"; PATH="${PATH%:}"
 	else
 		export PATH="$PATH${PATH:+:}$gem_dir/bin"
