@@ -1,4 +1,4 @@
-NAME=gem_path
+NAME=gem_home
 VERSION=0.0.1
 AUTHOR=postmodern
 URL=https://github.com/$(AUTHOR)/$(NAME)
