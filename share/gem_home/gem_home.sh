@@ -7,7 +7,7 @@ function gem_home_push()
 	GEM_PATH="$gem_dir${GEM_PATH:+:}$GEM_PATH"
 	PATH="$PATH${PATH:+:}$gem_dir/bin"
 
-	cd -
+	cd - >/dev/null
 }
 
 function gem_home_pop()
