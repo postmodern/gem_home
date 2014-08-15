@@ -1,4 +1,5 @@
 . ./test/helper.sh
+. ./share/gem_home/gem_home.sh
 
 function setUp()
 {

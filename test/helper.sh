@@ -5,8 +5,6 @@ export PREFIX="$PWD/test"
 export HOME="$PREFIX/home"
 export PATH="$PWD/bin:$PATH"
 
-. ./share/gem_path.sh
-
 eval "$("$RUBY_ROOT/bin/ruby" - <<EOF
 puts "test_ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
 puts "test_ruby_version=#{RUBY_VERSION};"
