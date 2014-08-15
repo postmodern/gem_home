@@ -44,7 +44,7 @@ with:
 Add the following to the `~/.bashrc` or `~/.zshrc` file:
 
 ``` bash
-source /usr/local/share/gem_home.sh
+source /usr/local/share/gem_home/gem_home.sh
 ```
 
 ### System Wide
@@ -54,7 +54,7 @@ If you wish to enable gem_home system-wide, add the following to
 
 ``` bash
 if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
-  source /usr/local/share/gem_home.sh
+  source /usr/local/share/gem_home/gem_home.sh
   ...
 fi
 ```
