@@ -12,9 +12,16 @@ EOF
 
 	[[ "$GEM_HOME" == "$gem_dir" ]] && return
 
+	if [[ -n "$GEM_HOME" ]]; then
+		PATH=":$PATH:"
+		export PATH="${PATH//:$GEM_HOME\/bin:/:$gem_dir/bin:$GEM_HOME/bin:}"
+		PATH="${PATH#:}"; PATH="${PATH%:}"
+	else
+		export PATH="$PATH${PATH:+:}$gem_dir/bin"
+	fi
+
 	export GEM_HOME="$gem_dir"
 	export GEM_PATH="$gem_dir${GEM_PATH:+:}$GEM_PATH"
-	export PATH="$PATH${PATH:+:}$gem_dir/bin"
 
 	popd >/dev/null
 }
