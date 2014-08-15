@@ -51,7 +51,14 @@ Examples:
 
 USAGE
 			;;
-		"")	echo "$GEM_HOME" ;;
+		"")
+			local gem_path="$GEM_PATH:"
+
+			until [[ -z "$gem_path" ]]; do
+				echo "  ${gem_path%%:*}"
+				gem_path="${gem_path#*:}"
+			done
+			;;
 		-)	gem_home_pop ;;
 		--vendor)
 			eval "$("$RUBY_ROOT/bin/ruby" - <<EOF
