@@ -2,13 +2,20 @@
 
 [![Build Status](https://travis-ci.org/postmodern/gem_home.png)](https://travis-ci.org/postmodern/gem_home)
 
-A tool for changing your `$GEM_HOME`.
+Changes your `$GEM_HOME`.
 
 ## Features
 
-* Supports pushing and popping directories from `$GEM_PATH`.
-* Adds gem `bin/` directories to `$PATH` as well.
-* Supports setting `$GEM_HOME` and reverting it to the last dir in `$GEM_PATH`.
+* Updates `$GEM_HOME`, `$GEM_PATH` and `$PATH`.
+  * Switches `$GEM_HOME` by pushing and popping gem directories to `$GEM_PATH`.
+    This allows the stacking of multiple gem directories.
+  * Prepends the new `$GEM_HOME/bin` to `$PATH` so it takes precedence.
+* Compartmentalizes gems into `.gem/$ruby_engine/$ruby_version`.
+* Reduces the need for `bundle exec`.
+* Plays nicely with [RVM] and [chruby].
+* Supports [bash] and [zsh].
+* Small (~90 LOC).
+* Has tests.
 
 ## Synopsis
 
@@ -93,6 +100,19 @@ is not always the same as `/bin/bash`.
 After removing the `gem_home` configuration:
 
     $ sudo make uninstall
+
+## Alternatives
+
+* [gs](https://github.com/inkel/gs#readme)
+* [gst](https://github.com/tonchis/gst#readme)
+* [ohmygems](http://blog.zenspider.com/blog/2012/09/ohmygems.html)
+* [renv](https://github.com/fnichol/renv)
+
+[RVM]: https://rvm.io/
+[chruby]: https://github.com/postmodern/chruby#readme
+
+[bash]: http://www.gnu.org/software/bash/
+[zsh]: http://www.zsh.org/
 
 [PGP]: http://en.wikipedia.org/wiki/Pretty_Good_Privacy
 
