@@ -14,7 +14,7 @@ function test_gem_home_push()
 	assertEquals "did not prepend to \$GEM_PATH" "$expected_gem_dir" \
 		                                     "$GEM_PATH"
 
-	assertEquals "did inject the gem bin/ dir into \$PATH" \
+	assertEquals "did not append the new gem bin/ dir to \$PATH" \
 		     "$original_path:$expected_gem_dir/bin" \
 	             "$PATH"
 
