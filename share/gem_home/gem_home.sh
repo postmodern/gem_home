@@ -74,7 +74,7 @@ USAGE
 			;;
 		-)	gem_home_pop ;;
 		--vendor)
-			eval "$("$RUBY_ROOT/bin/ruby" - <<EOF
+			eval "$(ruby - <<EOF
 puts "ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
 puts "ruby_version=#{RbConfig::CONFIG['ruby_version']};"
 EOF
@@ -82,7 +82,7 @@ EOF
 			gem_home_push "$PWD/vendor/gems/$ruby_engine/$ruby_version"
 			;;
 		*)
-			eval "$("$RUBY_ROOT/bin/ruby" - <<EOF
+			eval "$(ruby - <<EOF
 puts "ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
 puts "ruby_version=#{RUBY_VERSION};"
 EOF
