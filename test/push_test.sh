@@ -7,7 +7,7 @@ function test_gem_path_push()
 	local original_path="$PATH"
 	local original_gem_path="$GEM_PATH"
 
-	gem_path --push "$dir"
+	gem_home_push "$dir"
 
 	assertEquals "did not set \$GEM_HOME correctly" "$GEM_HOME" \
 		                                        "$expected_dir"
@@ -21,7 +21,7 @@ function test_gem_path_push()
 
 function tearDown()
 {
-	gem_path --pop
+	gem_home_pop
 }
 
 SHUNIT_PARENT=$0 . $SHUNIT2
