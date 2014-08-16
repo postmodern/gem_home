@@ -1,5 +1,5 @@
 NAME=gem_home
-VERSION=0.0.1
+VERSION=0.1.0
 AUTHOR=postmodern
 URL=https://github.com/$(AUTHOR)/$(NAME)
 
