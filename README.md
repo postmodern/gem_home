@@ -11,7 +11,6 @@ Changes your `$GEM_HOME`.
     This allows the stacking of multiple gem directories.
   * Prepends the new `$GEM_HOME/bin` to `$PATH` so it takes precedence.
 * Compartmentalizes gems into `.gem/$ruby_engine/$ruby_version`.
-* Reduces the need for `bundle exec`.
 * Plays nicely with [RVM] and [chruby].
 * Supports [bash] and [zsh].
 * Small (~90 LOC).
