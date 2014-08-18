@@ -71,6 +71,12 @@ with:
     wget https://raw.github.com/postmodern/gem_home/master/pkg/gem_home-0.1.0.tar.gz.asc
     gpg --verify gem_home-0.1.0.tar.gz.asc gem_home-0.1.0.tar.gz
 
+### Homebrew
+
+gem_home can also be installed with [homebrew]:
+
+    brew install --HEAD https://raw.github.com/postmodern/gem_home/master/homebrew/gem_home.rb
+
 ## Configuration
 
 Add the following to the `~/.bashrc` or `~/.zshrc` file:
@@ -114,5 +120,6 @@ After removing the `gem_home` configuration:
 [zsh]: http://www.zsh.org/
 
 [PGP]: http://en.wikipedia.org/wiki/Pretty_Good_Privacy
+[homebrew]: http://brew.sh/
 
 [1]: http://postmodern.github.com/contact.html#pgp
