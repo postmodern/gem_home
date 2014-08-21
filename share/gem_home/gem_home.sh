@@ -50,7 +50,7 @@ Options:
 	-V, --version	Prints the version
 	-h, --help	Prints this message
 
-Argumens:
+Arguments:
 	DIR	Sets DIR as the new \$GEM_HOME
 	-	Reverts to the previous \$GEM_HOME
 
