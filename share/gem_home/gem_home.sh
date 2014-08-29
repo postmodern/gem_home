@@ -38,7 +38,7 @@ function gem_home_pop()
 function gem_home()
 {
 	local ruby_engine ruby_version ruby_api_version gem_dir
-	local version="0.0.1"
+	local version="0.1.0"
 
 	case "$1" in
 		-V|--version)	echo "gem_home: $version" ;;
