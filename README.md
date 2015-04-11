@@ -12,6 +12,7 @@ Changes your `$GEM_HOME`.
   * Prepends the new `$GEM_HOME/bin` to `$PATH` so it takes precedence.
 * Compartmentalizes gems into `.gem/$ruby_engine/$ruby_version`.
 * Plays nicely with [RVM] and [chruby].
+* Optional auto-switching.
 * Supports [bash] and [zsh].
 * Small (~90 LOC).
 * Has tests.
@@ -99,6 +100,19 @@ fi
 
 This will prevent `gem_home` from accidentally being loaded by `/bin/sh`, which
 is not always the same as `/bin/bash`.
+
+### Auto-switching
+
+This feature's workflow is similar to [chruby's `auth.sh`](https://github.com/postmodern/chruby/blob/master/share/chruby/auto.sh):
+
+If you want to auto-switch current `$GEM_HOME` when you cd between your different projects, simply load `auto.sh` in `~/.bashrc` or `~/.zshrc`:
+
+``` bash
+source /usr/local/share/gem_home/gem_home.sh
+source /usr/local/share/gem_home/auto.sh
+```
+
+gem_home will check the current and parent directories for a `.ruby-gemhome` file, which contains a path to the custom $GEM_HOME.
 
 ## Uninstall
 
