@@ -46,6 +46,9 @@ clean:
 
 all: $(PKG) $(SIG)
 
+check:
+	shellcheck share/$(NAME)/*.sh
+
 test:
 	SHELL=`command -v bash` ./test/runner
 	SHELL=`command -v zsh`  ./test/runner
@@ -72,4 +75,4 @@ uninstall:
 	for file in $(INSTALL_FILES); do rm -f $(PREFIX)/$$file; done
 	rm -rf $(DOC_DIR)
 
-.PHONY: build download sign verify clean test tag release rpm install uninstall all
+.PHONY: build download sign verify clean check test tag release rpm install uninstall all
