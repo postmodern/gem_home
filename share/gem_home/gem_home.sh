@@ -58,7 +58,7 @@ Examples:
 
 	$ gem_home path/to/project
 	$ gem_home -
-	$ gem_home --vendor
+	$ gem_home --version
 
 USAGE
 			;;
