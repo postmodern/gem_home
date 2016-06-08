@@ -37,7 +37,6 @@ function gem_home_pop()
 
 function gem_home()
 {
-	local ruby_engine ruby_version ruby_api_version gem_dir
 	local version="0.1.0"
 
 	case "$1" in
@@ -65,7 +64,7 @@ USAGE
 		"")
 			[[ -z "$GEM_PATH" ]] && return
 
-			local gem_path="$GEM_PATH:"
+			local gem_path="$GEM_PATH:" gem_dir
 
 			until [[ -z "$gem_path" ]]; do
 				gem_dir="${gem_path%%:*}"
