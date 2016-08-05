@@ -3,7 +3,7 @@ require 'formula'
 class GemHome < Formula
   homepage 'https://github.com/postmodern/gem_home#readme'
   url 'https://github.com/postmodern/gem_home/archive/v0.1.0.tar.gz'
-  sha1 '338193cbbda0ee7bf0d3c903bb75fd24a4933693'
+  sha256 '67e9e174de42de640f144f88cd16b2a315bdec55567467743f8fbb96cba14e4e'
 
   head 'https://github.com/postmodern/gem_home.git'
 
