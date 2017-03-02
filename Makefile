@@ -15,6 +15,7 @@ SIG=$(PKG).asc
 
 PREFIX?=/usr/local
 DOC_DIR=$(PREFIX)/share/doc/$(PKG_NAME)
+BIN_DIR=$(PREFIX)/share/$(NAME)
 
 pkg:
 	mkdir $(PKG_DIR)
@@ -74,5 +75,6 @@ install:
 uninstall:
 	for file in $(INSTALL_FILES); do rm -f $(PREFIX)/$$file; done
 	rm -rf $(DOC_DIR)
+	rmdir $(BIN_DIR)
 
 .PHONY: build download sign verify clean check test tag release rpm install uninstall all
