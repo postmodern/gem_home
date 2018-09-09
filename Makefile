@@ -51,8 +51,10 @@ check:
 	shellcheck share/$(NAME)/*.sh
 
 test:
-	SHELL=`command -v bash` ./test/runner
 	SHELL=`command -v zsh`  ./test/runner
+	SHELL=`command -v bash` ./test/runner
+	SHELL=`command -v bash` GEM_HOME= GEM_PATH= ./test/runner
+	SHELL=`command -v bash` GEM_HOME=/usr/gems GEM_PATH=/usr/gems:/sys/gems PATH=/usr/gems/bin:/sys/gems/bin:$(PATH) ./test/runner
 
 tag:
 	git push origin master
