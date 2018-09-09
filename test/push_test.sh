@@ -11,7 +11,7 @@ function test_gem_home_push()
 	assertEquals "did not set \$GEM_HOME correctly" "$expected_gem_dir" \
 		                                        "$GEM_HOME"
 
-	assertEquals "did not prepend to \$GEM_PATH" "$expected_gem_dir" \
+    assertEquals "did not prepend to \$GEM_PATH" "$expected_gem_dir${original_gem_path:+:}${original_gem_path:-}" \
 		                                     "$GEM_PATH"
 
 	assertEquals "did not prepend the new gem bin/ dir to \$PATH" \
@@ -51,7 +51,7 @@ function test_gem_home_push_twice()
 		     "$GEM_HOME"
 
 	assertEquals "did not prepend both gem dirs to \$GEM_PATH" \
-		     "$expected_gem_dir2:$expected_gem_dir1" \
+		     "$expected_gem_dir2:$expected_gem_dir1${original_gem_path:+:}${original_gem_path:-}" \
 		     "$GEM_PATH"
 
 	assertEquals "did not inject the new gem bin/ into \$PATH" \
