@@ -14,7 +14,7 @@ PKG=$(PKG_DIR)/$(PKG_NAME).tar.gz
 SIG=$(PKG).asc
 
 PREFIX?=/usr/local
-SHARE_DIR=share/$(NAME)
+SHARE_DIR=share
 DOC_DIR=$(SHARE_DIR)/doc/$(PKG_NAME)
 
 pkg:
@@ -75,6 +75,5 @@ install:
 uninstall:
 	for file in $(INSTALL_FILES); do rm -f $(DESTDIR)$(PREFIX)/$$file; done
 	rm -rf $(DESTDIR)$(PREFIX)/$(DOC_DIR)
-	rmdir $(DESTDIR)$(PREFIX)/$(SHARE_DIR)
 
 .PHONY: build download sign verify clean check test tag release rpm install uninstall all
