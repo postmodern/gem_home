@@ -69,12 +69,12 @@ rpm:
 install:
 	for dir in $(INSTALL_DIRS); do mkdir -p $(PREFIX)/$$dir; done
 	for file in $(INSTALL_FILES); do cp $$file $(PREFIX)/$$file; done
-	mkdir -p $(DOC_DIR)
-	cp -r $(DOC_FILES) $(DOC_DIR)/
+	mkdir -p $(PREFIX)/$(DOC_DIR)
+	cp -r $(DOC_FILES) $(PREFIX)/$(DOC_DIR)/
 
 uninstall:
 	for file in $(INSTALL_FILES); do rm -f $(PREFIX)/$$file; done
-	rm -rf $(DOC_DIR)
-	rmdir $(SHARE_DIR)
+	rm -rf $(PREFIX)/$(DOC_DIR)
+	rmdir $(PREFIX)/$(SHARE_DIR)
 
 .PHONY: build download sign verify clean check test tag release rpm install uninstall all
