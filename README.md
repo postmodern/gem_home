@@ -75,7 +75,8 @@ with:
 
 gem_home can also be installed with [homebrew]:
 
-    brew install --HEAD https://raw.github.com/postmodern/gem_home/master/homebrew/gem_home.rb
+    curl https://github.com/postmodern/gem_home/blob/master/homebrew/gem_home.rb
+    brew install --HEAD -s gem_home.rb
 
 ## Configuration
 
