@@ -5,8 +5,12 @@ export PREFIX="$PWD/test"
 export HOME="$PREFIX/home"
 export PATH="$PWD/bin:$PATH"
 
-#export GEM_HOME="$HOME/.gem/ruby/2.1.2"
-#export GEM_PATH="$HOME/.gem/ruby/2.1.2:/opt/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0"
+if [[ -z "${GEM_PATH}" && -n "${GEM_HOME}" ]] || [[ -n "${GEM_PATH}" && -z "${GEM_HOME}" ]]; then
+    printf \
+        '\n\033[1;31m!!! WARN\033[0m\n\033[1;31m!!! \033[0m\033[1m%s\033[0m\n\033[1;31m!!! \033[0m\033[1m%s\033[0m\n\n' \
+        'Prior to running tests, either unset the GEM_PATH and GEM_HOME variables OR set them both!' \
+        'Ignoring this and using a combination of these variables set and unset will cause issues...'
+fi
 
 eval "$(ruby - <<EOF
 puts "test_ruby_engine=#{defined?(RUBY_ENGINE) ? RUBY_ENGINE : 'ruby'};"
