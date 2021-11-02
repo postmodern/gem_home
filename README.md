@@ -48,16 +48,15 @@ Using with bundler:
     Using dm-aggregates 1.2.0
     Using dm-do-adapter 1.2.0
     Using dm-migrations 1.2.0
-    ...    
+    ...
     $ padrino console # no `bundle exec` needed
 
 * Notice how bundler re-used many of the gems from `~/.gem/...` but installed
   missing gems into `$PWD/.gem/...`.
 
-
 ## Install
 
-    wget -O gem_home-0.1.0.tar.gz https://github.com/postmodern/gem_home/archive/v0.1.0.tar.gz
+    curl -o gem_home-0.1.0.tar.gz https://github.com/postmodern/gem_home/archive/v0.1.0.tar.gz
     tar -xzvf gem_home-0.1.0.tar.gz
     cd gem_home-0.1.0/
     sudo make install
@@ -65,17 +64,17 @@ Using with bundler:
 ### PGP
 
 All releases are [PGP] signed for security. Instructions on how to import my
-PGP key can be found on my [blog][1]. To verify that a release was not tampered 
+PGP key can be found on my [blog][1]. To verify that a release was not tampered
 with:
 
-    wget https://raw.github.com/postmodern/gem_home/master/pkg/gem_home-0.1.0.tar.gz.asc
+    curl -o gem_home-0.1.0.tar.gz https://raw.githubusercontent.com/postmodern/gem_home/master/pkg/gem_home-0.1.0.tar.gz.asc
     gpg --verify gem_home-0.1.0.tar.gz.asc gem_home-0.1.0.tar.gz
 
 ### Homebrew
 
 gem_home can also be installed with [homebrew]:
 
-    curl https://github.com/postmodern/gem_home/blob/master/homebrew/gem_home.rb
+    curl -o gem_home.rb https://raw.githubusercontent.com/postmodern/gem_home/master/homebrew/gem_home.rb
     brew install --HEAD -s gem_home.rb
 
 ## Configuration
@@ -86,6 +85,12 @@ Add the following to the `~/.bashrc` or `~/.zshrc` file:
 source /usr/local/share/gem_home/gem_home.sh
 ```
 
+Or on Apple Silicon:
+
+``` bash
+source /opt/homebrew/share/gem_home/gem_home.sh
+```
+
 ### System Wide
 
 If you wish to enable gem_home system-wide, add the following to
@@ -94,6 +99,15 @@ If you wish to enable gem_home system-wide, add the following to
 ``` bash
 if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
   source /usr/local/share/gem_home/gem_home.sh
+  ...
+fi
+```
+
+Or on Apple Silicon:
+
+``` bash
+if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
+  source /opt/homebrew/share/gem_home/gem_home.sh
   ...
 fi
 ```
